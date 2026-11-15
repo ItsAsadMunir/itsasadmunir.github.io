@@ -11,54 +11,70 @@
 </head>
 <body>
 <h1>Privacy Policy – Tiro Al Palo</h1>
-<p><em>Last updated: November 8, 2026</em></p>
+<p><em>Last updated: November 15, 2026</em></p>
 
-<p>This policy explains how the Android app <strong>Tiro Al Palo</strong> (package <code>com.paragon.tiro</code>) handles information.</p>
+<p>This policy explains how the Android app <strong>Tiro Al Palo</strong> (package <code>com.paragon.tiro</code>, version 4.0 and later) handles information.</p>
 
 <h2>Data controller</h2>
 <p>Asad Munir (Tiro Al Palo), Pakistan.<br>Contact: <a href="mailto:tiroalpaloinfo@gmail.com">tiroalpaloinfo@gmail.com</a></p>
 
 <h2>Information we collect</h2>
-<p>The app does not require an account and does not ask for your name, email, phone number or location. We do not sell personal data.</p>
+<p>The app has no user accounts and does not ask for your name, email, phone number or location. We do not sell personal data.</p>
 
 <table>
 <tr><th>Data</th><th>Purpose</th><th>Service</th></tr>
-<tr><td>IP address, device and app information</td><td>Delivering articles and app content</td><td>Google Firebase (Firestore, Hosting)</td></tr>
-<tr><td>App usage events, approximate country, device model, app version</td><td>Understanding how the app is used and improving it</td><td>Google Analytics for Firebase</td></tr>
-<tr><td>Crash reports (stack trace, device model, OS version, app version, installation ID)</td><td>Finding and fixing crashes</td><td>Firebase Crashlytics</td></tr>
-<tr><td>App and device integrity signals</td><td>Protecting our backend against abuse and bots</td><td>Firebase App Check / Google Play Integrity</td></tr>
-<tr><td>Advertising ID, IP address, ad interactions (only if ads are enabled)</td><td>Showing and measuring ads, including personalized ads where you consent</td><td>Google AdMob</td></tr>
+<tr><td>IP address, app version and request details (request logs)</td><td>Delivering articles, scores and app content; protecting the service against abuse (rate limiting). The IP address is only used as a short-lived rate-limit counter and is never stored in our database</td><td>Cloudflare (hosting and API)</td></tr>
+<tr><td>Random installation ID created by the app (not your advertising ID or Android ID, and not linked to your identity). Our server only stores it <strong>hashed</strong></td><td>Counting one vote per installation in polls and linking error reports ("Reportar error") to the same installation, so you can delete them</td><td>Our API (Cloudflare)</td></tr>
+<tr><td>Error reports you send with "Reportar error": type of error, optional text you write (max. 300 characters), the article or match, app version</td><td>Fixing errors in our content (a copy of the report is emailed to our team)</td><td>Our API (Cloudflare)</td></tr>
+<tr><td>Push notification token and the topics you are subscribed to (for example all news, live matches, your favourite team)</td><td>Sending push notifications (optional)</td><td>Firebase Cloud Messaging (Google)</td></tr>
+<tr><td>Crash reports (stack trace, device model, OS version, app version, Crashlytics installation ID)</td><td>Finding and fixing crashes</td><td>Firebase Crashlytics (Google)</td></tr>
+<tr><td>Advertising ID, IP address, ad interactions (only if ads are shown)</td><td>Showing and measuring ads, including personalized ads where you consent</td><td>Google AdMob</td></tr>
 </table>
 
-<p>Privacy information from Google: <a href="https://firebase.google.com/support/privacy">Firebase privacy</a> · <a href="https://policies.google.com/technologies/ads">How Google uses data in ads</a> · <a href="https://policies.google.com/privacy">Google Privacy Policy</a></p>
+<p>Article views are counted only per article (article ID, no user or device data) to build the "most read" list.</p>
+<p>Your favourite team, settings (theme, data saving) and content cached for offline reading are stored <strong>only on your device</strong>.</p>
+
+<p>Privacy information from our providers: <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare Privacy Policy</a> · <a href="https://firebase.google.com/support/privacy">Firebase privacy</a> · <a href="https://policies.google.com/technologies/ads">How Google uses data in ads</a> · <a href="https://policies.google.com/privacy">Google Privacy Policy</a></p>
+
+<h2>Push notifications</h2>
+<p>Push notifications are optional. On Android 13 and later the app asks for your permission first. You can turn them off at any time in Android settings (Settings → Apps → Tiro Al Palo → Notifications). The notification token stays with Google Firebase Cloud Messaging; it is not stored on our server.</p>
 
 <h2>Consent and ads</h2>
 <p>Users in the European Economic Area, the UK and Switzerland are shown a consent form (Google User Messaging Platform) and can choose whether to allow personalized ads. You can change your choice later from the app menu, and you can reset or delete your advertising ID in your Android settings (Settings → Google → Ads).</p>
 
 <h2>Legal basis (GDPR)</h2>
-<p>We process data based on our legitimate interest in running, securing and improving the app (content delivery, crash reports, analytics, App Check) and, for personalized ads, on your consent.</p>
+<p>We process data based on our legitimate interest in running, securing and improving the app (content delivery, request logs, crash reports, poll votes, error reports), on your choice to receive push notifications and, for personalized ads, on your consent.</p>
 
 <h2>Data retention</h2>
 <ul>
+ <li>Request logs at Cloudflare: kept for a few days (at most 7 days). Rate-limit counters (by IP address): about one minute.</li>
+ <li>Error reports ("Reportar error"): deleted after 12 months.</li>
+ <li>Poll votes: single votes are deleted 30 days after the poll closes; only the totals are kept.</li>
  <li>Crash reports: kept for up to 90 days.</li>
- <li>Analytics data: kept for up to 14 months.</li>
- <li>Content cached on your device: kept until you clear the app data or uninstall the app.</li>
+ <li>Data deleted from our database may remain in our database provider's point-in-time recovery (Cloudflare D1 Time Travel) for up to 30 days, after which it is gone.</li>
+ <li>Data on your device: kept until you use "Borrar mis datos", clear the app data or uninstall the app.</li>
 </ul>
 
+<h2>Delete your data</h2>
+<p>In the app, open the menu (Más) and tap <strong>"Borrar mis datos"</strong>. This deletes, for this installation, your poll votes and error reports on our server, unsubscribes the app from push notification topics and removes the installation ID, favourite team and saved content from your device. The app then creates a new random installation ID.</p>
+
 <h2>Your rights</h2>
-<p>If you are in the EEA or UK you have the right to access, correct, delete, restrict or object to the processing of your data, the right to data portability, the right to withdraw consent at any time, and the right to lodge a complaint with your local data protection authority (in Spain: Agencia Española de Protección de Datos, <a href="https://www.aepd.es">aepd.es</a>). To exercise these rights, email <a href="mailto:tiroalpaloinfo@gmail.com">tiroalpaloinfo@gmail.com</a>. Because the app has no accounts, please include your app installation details so we can identify related data where possible.</p>
+<p>If you are in the EEA or UK you have the right to access, correct, delete, restrict or object to the processing of your data, the right to data portability, the right to withdraw consent at any time, and the right to lodge a complaint with your local data protection authority (in Spain: Agencia Española de Protección de Datos, <a href="https://www.aepd.es">aepd.es</a>). You can delete your data directly in the app (see above) or email <a href="mailto:tiroalpaloinfo@gmail.com">tiroalpaloinfo@gmail.com</a>. Because the app has no accounts, we can only find data linked to an installation from that installation.</p>
+
+<h2>Older app versions (3.3 and earlier)</h2>
+<p>Versions 3.3 and earlier read articles and app content from Google Firebase Firestore and used Firebase App Check with Google Play Integrity to protect that backend. Both have been removed from version 4.0, which uses our own API on Cloudflare instead.</p>
 
 <h2>International transfers</h2>
-<p>Google may process data outside your country, including in the United States, under appropriate safeguards such as Standard Contractual Clauses.</p>
+<p>Cloudflare and Google may process data outside your country, including in the United States, under appropriate safeguards such as Standard Contractual Clauses.</p>
 
 <h2>External links</h2>
-<p>Articles may contain links to external websites. We are not responsible for the content or privacy practices of those websites.</p>
+<p>Articles may contain links to external websites and apps (for example YouTube, X or where to watch a match). We are not responsible for the content or privacy practices of those websites and apps.</p>
 
 <h2>Children</h2>
 <p>The app is not directed at children under 13 (under 16 in the EEA), and we do not knowingly collect personal information from them.</p>
 
 <h2>Security</h2>
-<p>All connections use HTTPS. We do not store personal data on our own servers; data processed by Google services is protected according to their security practices.</p>
+<p>All connections use HTTPS. Our server never stores the installation ID in plain form, only a hash of it. Data processed by Cloudflare and Google is protected according to their security practices.</p>
 
 <h2>Changes</h2>
 <p>We may update this policy. Changes will be posted on this page with a new date.</p>
@@ -68,6 +84,6 @@
 
 <hr>
 <h2>Resumen en español</h2>
-<p>Responsable: Asad Munir (Tiro Al Palo), Pakistán. La app no requiere cuenta ni pide datos personales. Usa Google Firebase (contenido, Analytics, Crashlytics y App Check) y, si se activan anuncios, Google AdMob; estos servicios pueden procesar la dirección IP, el identificador de publicidad, datos del dispositivo e informes de errores. En el EEE se solicita consentimiento para anuncios personalizados y puede cambiarse en cualquier momento. Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <a href="mailto:tiroalpaloinfo@gmail.com">tiroalpaloinfo@gmail.com</a>, y presentar una reclamación ante la AEPD.</p>
+<p>Responsable: Asad Munir (Tiro Al Palo), Pakistán. La app no tiene cuentas de usuario ni pide datos personales. El contenido se sirve desde Cloudflare, que procesa registros de peticiones (incluida la dirección IP) durante pocos días. La app crea un identificador de instalación aleatorio, no vinculado a tu identidad, que nuestro servidor solo guarda en forma de hash (irreversible) para los votos de encuestas y los avisos de "Reportar error" (incluido el texto que escribas). Las notificaciones push son opcionales y usan Firebase Cloud Messaging (token y temas); los informes de errores de la app usan Firebase Crashlytics, y los anuncios Google AdMob con el identificador de publicidad. En el EEE se solicita consentimiento para anuncios personalizados y puede cambiarse en cualquier momento. Con "Borrar mis datos" en el menú de la app se borran los datos de tu instalación. Las versiones 3.3 y anteriores usaban Google Firebase Firestore y App Check (Play Integrity); la versión 4.0 ya no los usa. Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <a href="mailto:tiroalpaloinfo@gmail.com">tiroalpaloinfo@gmail.com</a>, y presentar una reclamación ante la AEPD.</p>
 </body>
 </html>
